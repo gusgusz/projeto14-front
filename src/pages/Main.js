@@ -1,5 +1,5 @@
 import Logo from "../components/Logo/Logo.js";
-import {useNavigate} from "react-router-dom";
+import {Navigate, useNavigate} from "react-router-dom";
 import {useContext} from "react";
 import {Container, Top, Content, Buttons} from "../styles/styles.js";
 import { Link } from "react-router-dom";
@@ -10,27 +10,33 @@ import axios from "axios";
 
 export default function Main() {
   const {user} = useContext(UserContext);
+  const {setUser} = useContext(UserContext);
 
    const [transactions, setTransactions] = useState([]);
-    
+    const navigate = useNavigate();
   
-//  useEffect(() => {
-//     const promise = axios.get(`${Url}/accounts`, {headers: {Authorization: `Bearer ${user.token}`}});
-//     promise.then((response) => {
-//       setTransactions(response.data);
-//       console.log(transactions);
-//     });
-//     promise.catch((err) => {
-//       console.log(err);
-//     });
+ useEffect(() => {
+    const promise = axios.get(`${Url}/accounts`, {headers: {Authorization: `Bearer ${user.token}`}});
+    promise.then((response) => {
+      setTransactions(response.data);
+      console.log(transactions);
+    });
+    promise.catch((err) => {
+      console.log(err);
+    });
   
-//  }, []);
+ }, []);
+
+ function exit(){
+  setUser(null);
+  navigate("/");
+ }
   
     return (
       <Container>
         <Top>
-        <div>Olá, gus!!!</div>
-        <ion-icon name="exit-outline"></ion-icon>
+        <div>Olá, {user.name}!!!</div>
+        <ion-icon onClick={exit} name="exit-outline"></ion-icon>
         </Top>
         <Content>
       {transactions === [] ? <div className="warn">Não há registros de entrada ou saída</div> : 
@@ -38,8 +44,8 @@ export default function Main() {
         return (
           <div>
             <div className="date">{transaction.date}</div>
-            <div className="descripition">{transaction.description}</div>
-            <div className="value" color={transaction.type === "in" ? 
+            <div className="descripition">{transaction.titleDescription}</div>
+            <div className="value" color={transaction.type === 'in' ? 
             "green" : "red"}>{transaction.value}</div>
           </div>
         )

@@ -13,6 +13,9 @@ height: 100%;
 background-color: ${Purple};
 align-items: center;
 
+h1{
+    color: white;
+}
 
 `;
 
@@ -82,6 +85,7 @@ width: 85%;
 height: 60%;
 background-color: #FFFFFF;
 margin-top: 20px;
+overflow-y: scroll;
 
 .warn{
     font-family: Raleway;
@@ -95,8 +99,8 @@ margin-top: 20px;
 
 div{
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
+    margin-bottom: 6px;
 
     .date{
         font-family: Raleway;
@@ -118,32 +122,38 @@ div{
         font-size: 16px;
         font-weight: 400;
         line-height: 19px;
+        background-color: ${props => props.color};
+       
     }
-    }
-
+}
 `;
 
 const Buttons = styled.div`
 display: flex;
 width: 85%;
-justify-content: space-between;
 margin-top: 30px;
+justify-content: center;
+
 
 
 .in{
-    width: 48%;
+  
     background-color: #A328D6;
     color: white;
     height: 114px;
-    text-align: center;
+    margin-right: 10px;
+    width: 114px;
 }
 
 .out{
-    width: 48%;
+  
     background-color: #A328D6;
     color: white;
     height: 114px;
-    text-align: center;
+    width: 114px;
+    margin-left: 10px;
+
+    
     
 }
 `;
