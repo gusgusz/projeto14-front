@@ -71,7 +71,7 @@ export default function Main() {
           </div>
         )
       })}
-      <div>Saldo:      </div>
+      <div>    </div>
         </Content>
         <Buttons>
           <Link to="/new-in">
