@@ -125,5 +125,26 @@ div{
 
 const Buttons = styled.div`
 display: flex;
+width: 85%;
+justify-content: space-between;
+margin-top: 30px;
+
+
+.in{
+    width: 48%;
+    background-color: #A328D6;
+    color: white;
+    height: 114px;
+    text-align: center;
+}
+
+.out{
+    width: 48%;
+    background-color: #A328D6;
+    color: white;
+    height: 114px;
+    text-align: center;
+    
+}
 `;
-export {Container, Input, Button, Form, StyledLink, Top, Content};
+export {Container, Input, Button, Form, StyledLink, Top, Content, Buttons};
