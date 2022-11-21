@@ -157,4 +157,13 @@ justify-content: center;
     
 }
 `;
-export {Container, Input, Button, Form, StyledLink, Top, Content, Buttons};
+
+const Value = styled.div`
+    font-family: Raleway;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+    color: ${props => props.color};
+   
+`
+export {Container, Input, Button, Form, StyledLink, Top, Content, Buttons, Value};
